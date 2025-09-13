@@ -1,0 +1,336 @@
+/* Base Reset and Root Variables */
+:root {
+  /* Base font size for responsive scaling; can be adjusted via media queries */
+  font-size: 16px; /* 1rem = 16px */
+  /* Theme Colors and Font Family */
+  --theme-color1: #333;
+  --theme-color2: #555;
+  --theme-color3: #f40;
+  --theme-color4: #428bca;
+  --theme-color5: #fff;
+  --theme-color6: #f8f8f8;
+  --theme-font: Arial, sans-serif;
+  /* Common dimensions using relative units */
+  --header-height: 3.75rem; /* approx 60px */
+  --container-max-width: 84.375rem; /* 1350px / 16 = 84.375rem */
+}
+
+/* Global Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--theme-font);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--theme-color1);
+  background-color: var(--theme-color6);
+  padding: 0 1rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive Header */
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  height: var(--header-height);
+  background-color: var(--theme-color5);
+  border-bottom: 0.219rem solid var(--theme-color4); /* approx 3.5px */
+  transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+header:hover {
+  background-color: var(--theme-color5);
+  border: 0.063rem solid var(--theme-color2);
+  border-radius: 0.5rem;
+}
+
+/* Logo Section */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  max-height: 2.5rem; /* Adapted for mobile */
+}
+
+/* Navigation using Flex Layout */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+.nav li {
+  position: relative;
+}
+
+.nav li a {
+  color: var(--theme-color2);
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav li a:hover {
+  color: var(--theme-color3);
+}
+
+/* Dropdown Menu */
+.nav ul ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--theme-color5);
+  flex-direction: column;
+  z-index: 10;
+}
+
+.nav li:hover > ul {
+  display: flex;
+}
+
+/* Container for Content */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Form for Search using Flex */
+form[name="search"] {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 37.5rem; /* 600px */
+  margin: 0 auto;
+  background-color: var(--theme-color5);
+  padding: 0.125rem;
+  border-radius: 0.5rem;
+}
+
+form[name="search"] select.module-filter,
+form[name="search"] input.keyword {
+  padding: 0.5rem;
+  border: 0.063rem solid #ddd;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  flex: 1;
+}
+
+form[name="search"] input.keyword:focus {
+  outline: none;
+  border-color: var(--theme-color4);
+  box-shadow: 0 0 0 0.125rem var(--theme-color6);
+}
+
+form[name="search"] button#search-option {
+  background-color: var(--theme-color2);
+  color: var(--theme-color5);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+form[name="search"] button#search-option:hover {
+  background-color: var(--theme-color4);
+}
+
+/* Global Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Flexible Utility Classes */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.col {
+  flex: 1;
+  min-width: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Button Styles */
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: var(--theme-color2);
+  color: var(--theme-color5);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--theme-color4);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+/* Replace Float Layouts with Flex/Grid for Common Components */
+/* Example: Sidebar */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Image Adaptation for Responsive Layout */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Navigation Header Adjustments for Mobile */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 1rem;
+  }
+  .nav {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+}
+
+/* Adjust font size on smaller screens */
+@media (max-width: 480px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
+/* Additional Components and Adaptations */
+
+/* Footer Example */
+.footer {
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+  background-color: #292a2c;
+  color: var(--theme-color5);
+}
+
+.footer a {
+  color: var(--theme-color5);
+}
+
+/* Example list layout using flex */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: var(--theme-color5);
+  padding: 1rem;
+}
+
+.list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-bottom: 0.063rem solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+/* Post Content styling with responsive text and images */
+.post {
+  background-color: var(--theme-color5);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.post .title {
+  border-bottom: 0.063rem solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+.post .title h1 {
+  font-size: 1.375rem;
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.post img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ensure all images and media are responsive */
+video, iframe, embed {
+  max-width: 100%;
+  height: auto;
+}
+
+/* End of mobile adaptive CSS */
